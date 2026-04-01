@@ -65,6 +65,7 @@ export class TaxDocAthenaStack extends cdk.Stack {
       schwab_realized_gain_loss_detail: [
         { name: "description", type: "string" },
         { name: "cusip", type: "string" },
+        { name: "symbol", type: "string" },
         { name: "quantity", type: "double" },
         { name: "date_acquired", type: "string" },
         { name: "date_sold", type: "string" },
@@ -159,6 +160,7 @@ export class TaxDocAthenaStack extends cdk.Stack {
           parameters: {
             "skip.header.line.count": "1",
             "classification": "csv",
+            "use.null.for.invalid.data": "true",
           },
           partitionKeys,
           storageDescriptor: {
